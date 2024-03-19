@@ -1,12 +1,6 @@
-from PySide6.QtWidgets import QLabel, QPushButton
-from PySide6.QtGui import QPixmap, QIcon, QCursor
+from PySide6.QtWidgets import QPushButton
+from PySide6.QtGui import QIcon, QCursor
 from PySide6.QtCore import Qt
-
-class RecipeImg(QLabel):
-    def __init__(self,img_path):
-        super().__init__()
-        self.img = QPixmap(img_path).scaledToWidth(200)
-        self.setPixmap(self.img)
 
 class Button(QPushButton):
     def __init__(self, icon, color):
