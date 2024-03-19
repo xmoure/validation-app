@@ -1,43 +1,5 @@
 styles_table_files = '''
     QTableWidget {
-        gridline-color:#d4d9d7 ;
-    }
-    QHeaderView::section {
-        border-style: solid;
-        border-width: 1px;
-        border-color: #d4d9d7;
-        padding: 4px;
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
-
-    }
-
-    QTableWidget::item:selected {
-        background-color: transparent;
-    }
-
-    QTableWidget::item {
-        border-bottom: 1px solid #dddddd; /* Horizontal line */
-        border-right: 1px solid #dddddd;  /* Vertical line */
-        padding-left: 10px
-    }
-
-    QHeaderView::section:first {
-            /* Specific style for the first header */
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-    }
-    QHeaderView::section:last {
-            /* Specific style for the last header */
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-    }
-'''
-
-
-styles_table_test = '''
-    QTableWidget {
         border-radius: 10px;
         selection-background-color: #FFFFFF;
         alternate-background-color: #FFFFFF;

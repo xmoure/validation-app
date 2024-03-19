@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWidget, QFileDialog, QTableWidgetItem, QLabel, QA
 from PySide6.QtGui import QPixmap, QIcon, QColor, QBrush
 import os
 import resource_rc
-from styles.styles import styles_table_files, styles_btn_disabled, styles_btn_enabled, styles_table_test
+from styles.styles import styles_table_files, styles_btn_disabled, styles_btn_enabled
 from natsort import natsorted
 
 from views.main_window_ui import MainWindow
@@ -69,9 +69,9 @@ class MainWindowForm(QWidget, MainWindow):
             self.toggle_button_state()
 
     def config_table(self):
-        self.files_table.setStyleSheet(styles_table_test)
-        #self.files_table.horizontalHeader().setStyleSheet(styles_table_test)
-        #self.files_table.verticalHeader().setStyleSheet(styles_table_test)
+        self.files_table.setStyleSheet(styles_table_files)
+        #self.files_table.horizontalHeader().setStyleSheet(styles_table_files)
+        #self.files_table.verticalHeader().setStyleSheet(styles_table_files)
         self.files_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.files_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.files_table.setSelectionMode(QAbstractItemView.NoSelection)
