@@ -1,14 +1,16 @@
 import chess
 from PySide6.QtWidgets import QGraphicsScene, QGraphicsPixmapItem
 from PySide6.QtGui import QBrush
-from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtCore import QPointF, QRectF, Qt, Signal
 from chess_game.piece import Piece
 from chess_game.constants import MARGIN, SQUARE_SIZE
 
 class Chessboard(QGraphicsScene):
-    def __init__(self, board):
-        super().__init__()
+    fenUpdated = Signal(str)
+    def __init__(self, board, parent = None):
+        super().__init__(parent)
         self.board = board
+
 
     def render(self):
         self.clear()

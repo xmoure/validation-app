@@ -35,7 +35,6 @@ class Piece(QGraphicsPixmapItem):
 
     def generate_position_fen(self,board):
         fen_rows = []
-        print(board)
         for rank in range(7, -1, -1):  # 7 to 0
             empty_count = 0
             fen_row = ""
@@ -58,7 +57,6 @@ class Piece(QGraphicsPixmapItem):
     def generate_custom_fen(self, scene):
         # 8x8 board
         board_matrix = [["" for _ in range(8)] for _ in range(8)]
-
         # Fill the board matrix with the current pieces
         for item in scene.items():
             if isinstance(item, Piece):
@@ -67,7 +65,6 @@ class Piece(QGraphicsPixmapItem):
                 rank, file = 7 - int(y), int(x)
                 piece_symbol = item.chess_piece.symbol()
                 board_matrix[rank][file] = piece_symbol
-
         # Convert the board matrix to FEN notation
         fen_parts = []
         for rank in board_matrix:
@@ -112,8 +109,7 @@ class Piece(QGraphicsPixmapItem):
         else:
             self.setPos(self.original_pos)
 
-        #print(self.scene().board.fen())
         #fen_position = self.generate_position_fen(self.scene().board)
         fen_position = self.generate_custom_fen(self.scene)
-        print(fen_position)
+        self.scene.fenUpdated.emit(fen_position)
 

@@ -24,7 +24,7 @@ class ValidationWindow(object):
     def setupUi(self, ValidationWindow):
         if not ValidationWindow.objectName():
             ValidationWindow.setObjectName(u"ValidationWindow")
-        ValidationWindow.resize(1200, 870)
+        ValidationWindow.resize(1250, 870)
         font = QFont()
         font.setFamilies([u"Arial"])
         ValidationWindow.setFont(font)
@@ -58,17 +58,33 @@ class ValidationWindow(object):
         self.content_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.content_frame)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.count_images_label = QLabel(self.content_frame)
+        self.frame = QFrame(self.content_frame)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(0, 0))
+        self.frame.setFont(font)
+        self.frame.setFrameShape(QFrame.NoFrame)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 8, 0, 8)
+        self.count_images_label = QLabel(self.frame)
         self.count_images_label.setObjectName(u"count_images_label")
+        self.count_images_label.setMaximumSize(QSize(16777215, 16777215))
         font1 = QFont()
         font1.setFamilies([u"Arial"])
-        font1.setPointSize(14)
+        font1.setPointSize(18)
         font1.setBold(True)
+        font1.setItalic(False)
         self.count_images_label.setFont(font1)
         self.count_images_label.setStyleSheet(u"color: black;\n"
-"margin-bottom: 20px;")
+"")
+        self.count_images_label.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_5.addWidget(self.count_images_label)
+        self.horizontalLayout_4.addWidget(self.count_images_label)
+
+
+        self.verticalLayout_5.addWidget(self.frame)
 
         self.image_board_frame = QFrame(self.content_frame)
         self.image_board_frame.setObjectName(u"image_board_frame")
@@ -86,7 +102,7 @@ class ValidationWindow(object):
         self.image_frame.setObjectName(u"image_frame")
         self.image_frame.setMinimumSize(QSize(0, 350))
         self.image_frame.setFont(font)
-        self.image_frame.setFrameShape(QFrame.Box)
+        self.image_frame.setFrameShape(QFrame.Panel)
         self.image_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.image_frame)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -117,7 +133,7 @@ class ValidationWindow(object):
         self.board_frame.setObjectName(u"board_frame")
         self.board_frame.setMinimumSize(QSize(0, 350))
         self.board_frame.setFont(font)
-        self.board_frame.setFrameShape(QFrame.Box)
+        self.board_frame.setFrameShape(QFrame.Panel)
         self.board_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.board_frame)
 #ifndef Q_OS_MAC
@@ -133,7 +149,8 @@ class ValidationWindow(object):
         font2.setPointSize(13)
         self.move_pieces_label.setFont(font2)
         self.move_pieces_label.setStyleSheet(u"color: black;\n"
-"margin-bottom: 10px;")
+"margin-bottom: 5px;\n"
+"padding-top: 5px;")
 
         self.verticalLayout_4.addWidget(self.move_pieces_label)
 
@@ -173,11 +190,15 @@ class ValidationWindow(object):
 
         self.generated_fen_text_edit = QTextEdit(self.generated_fen_frame)
         self.generated_fen_text_edit.setObjectName(u"generated_fen_text_edit")
-        self.generated_fen_text_edit.setMaximumSize(QSize(16777215, 40))
-        self.generated_fen_text_edit.setFont(font)
+        self.generated_fen_text_edit.setMaximumSize(QSize(16777215, 35))
+        font4 = QFont()
+        font4.setFamilies([u"Arial"])
+        font4.setPointSize(18)
+        self.generated_fen_text_edit.setFont(font4)
         self.generated_fen_text_edit.setStyleSheet(u"background-color: white;\n"
 "border: 1px solid #ff6e40;\n"
-"color: black;")
+"color: black;\n"
+"text-align: center;")
 
         self.horizontalLayout_2.addWidget(self.generated_fen_text_edit)
 
@@ -196,10 +217,10 @@ class ValidationWindow(object):
         self.cancel_validation_btn.setObjectName(u"cancel_validation_btn")
         self.cancel_validation_btn.setMinimumSize(QSize(180, 35))
         self.cancel_validation_btn.setMaximumSize(QSize(160, 16777215))
-        font4 = QFont()
-        font4.setFamilies([u"Arial"])
-        font4.setBold(True)
-        self.cancel_validation_btn.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"Arial"])
+        font5.setBold(True)
+        self.cancel_validation_btn.setFont(font5)
         self.cancel_validation_btn.setStyleSheet(u"QPushButton{\n"
 "	background-color : #343a40;\n"
 "	color: white;\n"
@@ -216,7 +237,7 @@ class ValidationWindow(object):
         self.save_validation_btn.setObjectName(u"save_validation_btn")
         self.save_validation_btn.setMinimumSize(QSize(180, 35))
         self.save_validation_btn.setMaximumSize(QSize(160, 16777215))
-        self.save_validation_btn.setFont(font4)
+        self.save_validation_btn.setFont(font5)
         self.save_validation_btn.setStyleSheet(u"QPushButton{\n"
 "	background-color : #ff6e40;\n"
 "	color: white;\n"

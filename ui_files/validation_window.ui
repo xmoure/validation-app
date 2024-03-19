@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
+    <width>1250</width>
     <height>870</height>
    </rect>
   </property>
@@ -110,21 +110,69 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
-             <widget class="QLabel" name="count_images_label">
+             <widget class="QFrame" name="frame">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Arial</family>
-                <pointsize>14</pointsize>
-                <bold>true</bold>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: black;
-margin-bottom: 20px;</string>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
               </property>
-              <property name="text">
-               <string>One image out of 100</string>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
               </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>8</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>8</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="count_images_label">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>18</pointsize>
+                   <italic>false</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: black;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>One image out of 100</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
@@ -176,7 +224,7 @@ margin-bottom: 20px;</string>
                   </font>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::Box</enum>
+                  <enum>QFrame::Panel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
@@ -256,7 +304,7 @@ margin-bottom: 20px;</string>
                   </font>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::Box</enum>
+                  <enum>QFrame::Panel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
@@ -284,7 +332,8 @@ margin-bottom: 20px;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">color: black;
-margin-bottom: 10px;</string>
+margin-bottom: 5px;
+padding-top: 5px;</string>
                     </property>
                     <property name="text">
                      <string>Move the pieces to generate new fen</string>
@@ -363,18 +412,20 @@ margin-bottom: 10px;</string>
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
-                   <height>40</height>
+                   <height>35</height>
                   </size>
                  </property>
                  <property name="font">
                   <font>
                    <family>Arial</family>
+                   <pointsize>18</pointsize>
                   </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: white;
 border: 1px solid #ff6e40;
-color: black;</string>
+color: black;
+text-align: center;</string>
                  </property>
                 </widget>
                </item>

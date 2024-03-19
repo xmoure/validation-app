@@ -22,8 +22,6 @@ styles_table_files = '''
     QHeaderView::section:last:vertical {
         border-bottom-left-radius: 10px;
     }
-
-
 '''
 
 styles_btn_disabled = '''

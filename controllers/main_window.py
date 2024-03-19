@@ -1,14 +1,14 @@
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtWidgets import QWidget, QFileDialog, QTableWidgetItem, QLabel, QAbstractItemView, QDialog, QVBoxLayout, QHeaderView, QSizePolicy, QMessageBox
-from PySide6.QtGui import QPixmap, QIcon, QColor, QBrush
 import os
 import resource_rc
+from PySide6.QtCore import Qt, QSize
+from PySide6.QtWidgets import QWidget, QFileDialog, QTableWidgetItem, QLabel, QAbstractItemView, QDialog, QVBoxLayout, QHeaderView, QSizePolicy, QMessageBox
+from PySide6.QtGui import QPixmap, QIcon, QColor
 from styles.styles import styles_table_files, styles_btn_disabled, styles_btn_enabled
 from natsort import natsorted
-
 from views.main_window_ui import MainWindow
 from controllers.validation_window import ValidationWindowForm
 
+BUTTON_DISABLED_TEXT = "Button disabled. You need to select the image and destination folders."
 
 class MainWindowForm(QWidget, MainWindow):
     def __init__(self) -> None:
@@ -27,7 +27,7 @@ class MainWindowForm(QWidget, MainWindow):
         self.image_paths = {}
         self.config_table()
         self.files_table.cellClicked.connect(self.cell_clicked)
-        self.start_validation_btn.setToolTip("Button disabled. You need to select the image and destination folders.")
+        self.start_validation_btn.setToolTip(BUTTON_DISABLED_TEXT)
         self.select_folder_btn.clicked.connect(self.select_images_folder)
         self.select_destination_folder_btn.clicked.connect(self.select_destination_folder)
         self.start_validation_btn.clicked.connect(self.open_validation_window)
@@ -158,7 +158,7 @@ class MainWindowForm(QWidget, MainWindow):
 
     def update_tooltip(self):
         if not self.start_validation_btn.isEnabled():
-            self.start_validation_btn.setToolTip("Button disabled. You need to select the image and destination folders.")
+            self.start_validation_btn.setToolTip(BUTTON_DISABLED_TEXT)
             self.start_validation_btn.setToolTipDuration(3000)
         else:
             self.start_validation_btn.setToolTip("")
