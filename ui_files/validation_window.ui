@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>870</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -31,6 +36,11 @@
    </property>
    <item>
     <widget class="QFrame" name="central_widget_frame">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
+     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
@@ -55,6 +65,11 @@
       </property>
       <item>
        <widget class="QFrame" name="background_frame">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: #f0f0f0;</string>
         </property>
@@ -82,6 +97,11 @@
          </property>
          <item>
           <widget class="QFrame" name="content_frame">
+           <property name="font">
+            <font>
+             <family>Arial</family>
+            </font>
+           </property>
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
            </property>
@@ -115,6 +135,11 @@ margin-bottom: 20px;</string>
                 <height>370</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Arial</family>
+               </font>
+              </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
               </property>
@@ -138,12 +163,17 @@ margin-bottom: 20px;</string>
                 <number>0</number>
                </property>
                <item>
-                <widget class="QFrame" name="frame_3">
+                <widget class="QFrame" name="image_frame">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
                    <height>350</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                  </font>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
@@ -196,6 +226,11 @@ margin-bottom: 20px;</string>
                       <height>300</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">margin-top: 20px;</string>
                     </property>
@@ -208,12 +243,17 @@ margin-bottom: 20px;</string>
                 </widget>
                </item>
                <item>
-                <widget class="QFrame" name="frame_4">
+                <widget class="QFrame" name="board_frame">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
                    <height>350</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                  </font>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
@@ -259,6 +299,11 @@ margin-bottom: 10px;</string>
                       <height>300</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                     </font>
+                    </property>
                     <property name="frameShape">
                      <enum>QFrame::NoFrame</enum>
                     </property>
@@ -275,8 +320,13 @@ margin-bottom: 10px;</string>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>150</height>
+                <height>70</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Arial</family>
+               </font>
               </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
@@ -285,6 +335,12 @@ margin-bottom: 10px;</string>
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
                <item>
                 <widget class="QLabel" name="generated_fen_label">
                  <property name="font">
@@ -310,6 +366,11 @@ margin-bottom: 10px;</string>
                    <height>40</height>
                   </size>
                  </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: white;
 border: 1px solid #ff6e40;
@@ -322,6 +383,17 @@ color: black;</string>
             </item>
             <item>
              <widget class="QFrame" name="btns_frame">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Arial</family>
+               </font>
+              </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
               </property>
@@ -333,8 +405,8 @@ color: black;</string>
                 <widget class="QPushButton" name="cancel_validation_btn">
                  <property name="minimumSize">
                   <size>
-                   <width>160</width>
-                   <height>30</height>
+                   <width>180</width>
+                   <height>35</height>
                   </size>
                  </property>
                  <property name="maximumSize">
@@ -375,8 +447,8 @@ QPushButton::hover {background-color : #5a6268};</string>
                 <widget class="QPushButton" name="save_validation_btn">
                  <property name="minimumSize">
                   <size>
-                   <width>160</width>
-                   <height>30</height>
+                   <width>180</width>
+                   <height>35</height>
                   </size>
                  </property>
                  <property name="maximumSize">

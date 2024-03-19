@@ -1,5 +1,5 @@
 from PySide6.QtCore import Qt, QSize
-from PySide6.QtWidgets import QWidget, QFileDialog, QTableWidgetItem, QLabel, QAbstractItemView, QDialog, QVBoxLayout, QHeaderView, QSizePolicy
+from PySide6.QtWidgets import QWidget, QFileDialog, QTableWidgetItem, QLabel, QAbstractItemView, QDialog, QVBoxLayout, QHeaderView, QSizePolicy, QMessageBox
 from PySide6.QtGui import QPixmap, QIcon, QColor, QBrush
 import os
 import resource_rc
@@ -42,12 +42,15 @@ class MainWindowForm(QWidget, MainWindow):
             return contents
         except FileNotFoundError:
             print(f"The directory {self.folder_path} does not exist")
+            QMessageBox.critical(self, "Error", f"The directory {self.folder_path} does not exist")
             return []
         except PermissionError:
             print("You do not have permissions to access the directory")
+            QMessageBox.critical(self, "Error", "You do not have permissions to access the directory")
             return []
         except Exception as e:
             print(f"An error occurred: {e}")
+            QMessageBox.critical(self, "Error", f"An error occurred: {e}")
             return []
 
     def select_images_folder(self):
