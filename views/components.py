@@ -1,6 +1,6 @@
-from PySide6.QtWidgets import QPushButton, QLabel, QMessageBox, QDialog, QVBoxLayout
+from PySide6.QtWidgets import QPushButton, QLabel
 from PySide6.QtGui import QIcon, QCursor
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
 
 class Button(QPushButton):
     def __init__(self, icon, color):
@@ -15,17 +15,11 @@ class Button(QPushButton):
         self.setCursor(pointer)
 
 class ClickableLabel(QLabel):
+    clicked = Signal()
+
     def __init__(self, parent=None):
         super().__init__(parent)
 
     def mousePressEvent(self, event):
-        self.show_image_dialog(self.pixmap())
-
-    def show_image_dialog(self, pixmap):
-        dialog = QDialog(self)
-        layout = QVBoxLayout()
-        label = QLabel()
-        label.setPixmap(pixmap.scaled(980, 980, Qt.KeepAspectRatio, Qt.SmoothTransformation))
-        layout.addWidget(label)
-        dialog.setLayout(layout)
-        dialog.exec()
+        self.clicked.emit()
+        super().mousePressEvent(event)

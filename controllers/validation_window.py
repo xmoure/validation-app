@@ -1,10 +1,11 @@
 import os
+import subprocess
 import shutil
 import resource_rc
 import csv
 import chess
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtWidgets import QWidget, QMessageBox, QLabel, QVBoxLayout, QDialog
 from PySide6.QtGui import QPixmap
 from views.validation_window_ui import ValidationWindow
 from chess_game.chessboard import Chessboard
@@ -29,6 +30,7 @@ class ValidationWindowForm(QWidget, ValidationWindow):
         self.cancel_validation_btn.clicked.connect(self.close)
         self.read_csv_and_display_first_element()
         self.save_validation_btn.clicked.connect(self.validate_and_show_next)
+        self.chess_img_label.clicked.connect(self.show_image_dialog)
 
     def read_csv_and_display_first_element(self):
         try:
@@ -63,6 +65,7 @@ class ValidationWindowForm(QWidget, ValidationWindow):
         event.accept()
 
     def set_image(self, image_path):
+        self.chess_img_label.setProperty('image_path', image_path)
         pixmap = QPixmap(image_path)
         pixmap = pixmap.scaled(550, 600, Qt.KeepAspectRatio)
         self.chess_img_label.setPixmap(pixmap)
@@ -154,6 +157,28 @@ class ValidationWindowForm(QWidget, ValidationWindow):
             return details
         else:
             return ""
+
+    def show_image_dialog(self):
+        image_path = self.chess_img_label.property('image_path')
+        pixmap = QPixmap(image_path)
+        dialog = QDialog(self)
+        layout = QVBoxLayout()
+        label = QLabel()
+        label.setPixmap(pixmap.scaled(980, 980, Qt.KeepAspectRatio, Qt.SmoothTransformation))
+        layout.addWidget(label)
+        dialog.setLayout(layout)
+        if image_path and os.path.isfile(image_path):
+            # Open the image with the system's default application
+            if os.name == 'nt':  # If the system is Windows
+                os.startfile(image_path)
+            elif os.name == 'posix':
+                if 'darwin' in os.sys.platform:  # macOS
+                    subprocess.run(['open', image_path])
+                else:  # Unix/Linux
+                    subprocess.run(['xdg-open', image_path])
+            else:
+                print("OS not supported!")
+        dialog.exec()
 
 
     def validate_and_show_next(self):

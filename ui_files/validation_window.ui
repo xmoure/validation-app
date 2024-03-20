@@ -267,7 +267,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="chess_img_label">
+                   <widget class="ClickableLabel" name="chess_img_label">
                     <property name="minimumSize">
                      <size>
                       <width>300</width>
@@ -550,6 +550,13 @@ QPushButton::hover {background-color : #ffc13b};</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>views/components</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resource.qrc"/>
  </resources>

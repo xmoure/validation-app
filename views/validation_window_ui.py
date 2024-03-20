@@ -18,6 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QGraphicsView, QHBoxLayout,
     QLabel, QPushButton, QSizePolicy, QTextEdit,
     QVBoxLayout, QWidget)
+
+from views.components import ClickableLabel
 import resource_rc
 
 class ValidationWindow(object):
@@ -118,7 +120,7 @@ class ValidationWindow(object):
 
         self.verticalLayout_2.addWidget(self.imge_label)
 
-        self.chess_img_label = QLabel(self.image_frame)
+        self.chess_img_label = ClickableLabel(self.image_frame)
         self.chess_img_label.setObjectName(u"chess_img_label")
         self.chess_img_label.setMinimumSize(QSize(300, 300))
         self.chess_img_label.setFont(font)
