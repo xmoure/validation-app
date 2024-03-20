@@ -103,18 +103,14 @@ class MainWindowForm(QWidget, MainWindow):
         even_color = QColor('#FFFFFF')
         odd_color = QColor('#FFFFFF')
 
-
         for row, file in enumerate(sorted_files):
             file_path = os.path.join(folder_path, file)
             item = QTableWidgetItem(file)
             # Make the item non-editable
             item.setFlags(item.flags() & ~Qt.ItemIsEditable)
             item.setTextAlignment(Qt.AlignCenter)
-
-
             background_color = even_color if row % 2 == 0 else odd_color
             item.setBackground(background_color)
-
             self.files_table.setItem(row, 0, item)
             self.files_table.setRowHeight(row, 350)
 
@@ -138,7 +134,6 @@ class MainWindowForm(QWidget, MainWindow):
                 label.setPixmap(icon.pixmap(100, 100))
                 label.setStyleSheet("background-color: {}".format(background_color.name()))
                 self.files_table.setCellWidget(row, 1, label)
-
 
 
     def cell_clicked(self, row, column):

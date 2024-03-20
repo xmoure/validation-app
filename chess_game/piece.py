@@ -109,7 +109,8 @@ class Piece(QGraphicsPixmapItem):
         else:
             self.setPos(self.original_pos)
 
-        #fen_position = self.generate_position_fen(self.scene().board)
+        #fen_position_test = self.generate_position_fen(self.scene.board)
+        #print("generated_fen_position", fen_position_test)
         fen_position = self.generate_custom_fen(self.scene)
         self.scene.fenUpdated.emit(fen_position)
 
