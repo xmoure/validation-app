@@ -26,7 +26,7 @@ class ValidationWindow(object):
     def setupUi(self, ValidationWindow):
         if not ValidationWindow.objectName():
             ValidationWindow.setObjectName(u"ValidationWindow")
-        ValidationWindow.resize(1250, 870)
+        ValidationWindow.resize(1450, 870)
         font = QFont()
         font.setFamilies([u"Arial"])
         ValidationWindow.setFont(font)
@@ -91,6 +91,7 @@ class ValidationWindow(object):
         self.image_board_frame = QFrame(self.content_frame)
         self.image_board_frame.setObjectName(u"image_board_frame")
         self.image_board_frame.setMinimumSize(QSize(940, 370))
+        self.image_board_frame.setMaximumSize(QSize(16777215, 16777215))
         self.image_board_frame.setFont(font)
         self.image_board_frame.setFrameShape(QFrame.NoFrame)
         self.image_board_frame.setFrameShadow(QFrame.Sunken)
@@ -134,6 +135,7 @@ class ValidationWindow(object):
         self.board_frame = QFrame(self.image_board_frame)
         self.board_frame.setObjectName(u"board_frame")
         self.board_frame.setMinimumSize(QSize(0, 350))
+        self.board_frame.setMaximumSize(QSize(16777215, 16777215))
         self.board_frame.setFont(font)
         self.board_frame.setFrameShape(QFrame.Panel)
         self.board_frame.setFrameShadow(QFrame.Raised)
@@ -158,7 +160,13 @@ class ValidationWindow(object):
 
         self.chess_graphic_view = QGraphicsView(self.board_frame)
         self.chess_graphic_view.setObjectName(u"chess_graphic_view")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.chess_graphic_view.sizePolicy().hasHeightForWidth())
+        self.chess_graphic_view.setSizePolicy(sizePolicy)
         self.chess_graphic_view.setMinimumSize(QSize(300, 300))
+        self.chess_graphic_view.setMaximumSize(QSize(1200, 16777215))
         self.chess_graphic_view.setFont(font)
         self.chess_graphic_view.setFrameShape(QFrame.NoFrame)
 

@@ -94,7 +94,22 @@ class Piece(QGraphicsPixmapItem):
         x = round(self.x() / SQUARE_SIZE) * SQUARE_SIZE
         y = round(self.y() / SQUARE_SIZE) * SQUARE_SIZE
 
-        if 0 <= x <= (7 * SQUARE_SIZE) and 0 <= y <= (7 * SQUARE_SIZE):
+        file = x // SQUARE_SIZE
+        rank = 7 - (y // SQUARE_SIZE)
+        square = chess.square(file, rank)
+        target_piece = self.scene.board.piece_at(square)
+
+        if target_piece is None or square == self.initial_square:
+            self.setPos(QPointF(x, y))
+            self.scene.board.push(chess.Move(self.current_square, square))
+            self.current_square = square
+        else:
+            self.setPos(self.original_pos)
+
+
+        # if we want to restrict the movement of the pieces only to inside the chessboard
+        # if a piece is moved outside of the board then it is returned back to where it was
+        """ if 0 <= x <= (7 * SQUARE_SIZE) and 0 <= y <= (7 * SQUARE_SIZE):
             file = x // SQUARE_SIZE
             rank = 7 - (y // SQUARE_SIZE)
             square = chess.square(file, rank)
@@ -107,7 +122,7 @@ class Piece(QGraphicsPixmapItem):
             else:
                 self.setPos(self.original_pos)
         else:
-            self.setPos(self.original_pos)
+            self.setPos(self.original_pos) """
 
         #fen_position_test = self.generate_position_fen(self.scene.board)
         #print("generated_fen_position", fen_position_test)
